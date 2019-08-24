@@ -1,18 +1,31 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "noImplicitAny": false,
-    "module": "commonjs",
+    "module": "es6",
     "target": "es6",
-    "lib": ["es2015", "es2017", "dom"],
+    "outDir": "dist/",
+    "noImplicitAny": true,
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
     "removeComments": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
+    "resolveJsonModule": true,
     "allowJs": true,
-    "baseUrl": ".",
+    "esModuleInterop": true,
+    "baseUrl": "./",
     "paths": {
       "components/*": ["./client/components/*"],
       "pages/*": ["./client/pages/*"]
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
 }

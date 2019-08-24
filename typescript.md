@@ -52,7 +52,8 @@
 
     /* 其他选项 */
     "experimentalDecorators": true, // 启用装饰器
-    "emitDecoratorMetadata": true // 为装饰器提供元数据的支持
+    "emitDecoratorMetadata": true, // 为装饰器提供元数据的支持
+    "resolveJsonModule": true // json 文件
   }
 }
 ```

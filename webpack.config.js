@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
   mode: 'production',
@@ -19,9 +20,16 @@ module.exports = {
     port: 9000,
     noInfo: true,
     open: 'Google Chrome',
-    after: function(app, server) {
-      console.log('>>>>>>>>>after');
-    },
+    historyApiFallback: true, //加在devServer里
+    // proxy: {
+    //   'https://raw.githubusercontent.com/niexiaofei1988/data/master/data': {
+    //     target: 'https://raw.githubusercontent.com/niexiaofei1988/data/master/data',
+    //     changeOrigin: true,
+    //   },
+    // },
+    // after: function(app, server) {
+    //   console.log('>>>>>>>>>after');
+    // },
   },
   module: {
     rules: [
@@ -29,11 +37,26 @@ module.exports = {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'babel-loader',
-          },
+          // {
+          //   loader: 'babel-loader',
+          // },
           {
             loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              getCustomTransformers: () => ({
+                before: [
+                  tsImportPluginFactory({
+                    libraryName: 'antd',
+                    libraryDirectory: 'es',
+                    style: 'css', // 设置为 true 编译报错, less版本降级
+                  }),
+                ],
+              }),
+              compilerOptions: {
+                module: 'es2015',
+              },
+            },
           },
         ],
       },
@@ -58,13 +81,13 @@ module.exports = {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
+        useShortDoctype: true,
       },
       template: 'client/template/index.html',
     }),
   ],
   externals: {
-    'react': 'React',
+    react: 'React',
     'react-dom': 'ReactDOM',
   },
 };
