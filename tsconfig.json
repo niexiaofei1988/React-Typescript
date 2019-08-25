@@ -4,7 +4,7 @@
     "module": "es6",
     "target": "es6",
     "outDir": "dist/",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "removeComments": true,
@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "esModuleInterop": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "components/*": ["./client/components/*"],
       "pages/*": ["./client/pages/*"]

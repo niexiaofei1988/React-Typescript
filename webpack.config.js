@@ -61,6 +61,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.txt$/,
+        use: 'raw-loader',
+      },
+      {
         test: /\.(less|css)$/,
         use: ['style-loader', 'css-loader', 'less-loader'],
       },

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
 

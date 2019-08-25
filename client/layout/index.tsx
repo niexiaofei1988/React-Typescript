@@ -1,8 +1,14 @@
 /**
  * @desc: 主布局
  */
-import React from 'react';
+import React, { Fragment } from 'react';
+import Nav from './Nav';
 
-export default function MyLayout() {
-  return <div>主布局</div>;
+export default function MyLayout({ children }) {
+  return (
+    <Fragment>
+      <Nav />
+      <div style={{ padding: 24, height: 'calc(100% - 63px)' }}>{children}</div>
+    </Fragment>
+  );
 }
