@@ -1,16 +1,22 @@
 import * as React from 'react';
 import { Empty } from 'antd';
+// import EmptyProps from '~antd/lib/empty/index.d.ts';
 import MyLayout from '../../layout';
 
 import './index.less';
 
-function Welcome(props: any) {
+interface WelcomeProps {
+  image?: string;
+  description?: string;
+}
+
+function Welcome(props: WelcomeProps) {
   return (
     <MyLayout>
       <Empty
         className="welcome-wrapper"
         description="欢迎来到测试TS"
-        image="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+        image="https://source.unsplash.com/random/1200x800"
       />
     </MyLayout>
   );

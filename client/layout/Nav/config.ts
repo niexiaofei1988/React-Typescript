@@ -5,6 +5,7 @@ export default {
   logo: {
     className: 'header2-logo',
     // children: 'https://source.unsplash.com/random/80x80',
+    link: 'https://github.com/niexiaofei1988/React-Typescript',
     children:
       'https://avatars3.githubusercontent.com/u/16014141?s=400&u=e432731469909d98b2e5ed969e7f80743c49c046&v=4',
   },

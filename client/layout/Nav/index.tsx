@@ -45,7 +45,9 @@ class Header extends React.Component {
           {...dataSource.page}
           className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}>
           <TweenOne animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }} {...dataSource.logo}>
-            <Avatar src={dataSource.logo.children} />
+            <a href={dataSource.logo.link} target="_blank">
+              <Avatar src={dataSource.logo.children} />
+            </a>
           </TweenOne>
           {isMobile && (
             <div
