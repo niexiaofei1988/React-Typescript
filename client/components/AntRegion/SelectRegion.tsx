@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Select } from 'antd';
 
 const { Option, OptGroup } = Select;
@@ -13,7 +13,7 @@ export interface TreeNodeItemProps {
 export interface SelectRegionProps {
   onChange?: Function;
   showPreview?: Boolean;
-  value?: string[] | string | any[];
+  value?: string[] | string;
   sourceData: any[];
 }
 
@@ -21,7 +21,7 @@ function SelectRegion(props: SelectRegionProps) {
   const { value, onChange, sourceData = [], ...restProps } = props;
   const [stateValue, setStateValue] = useState<string[] | string>([]);
 
-  useState(() => {
+  useEffect(() => {
     if ('value' in props) {
       setStateValue(value);
     }
@@ -64,8 +64,7 @@ function SelectRegion(props: SelectRegionProps) {
             (props['data-pinyin'] && props['data-pinyin'].match(new RegExp(inputValue, 'gi'))) ||
             ((typeof children === 'string' && children.match(inputValue)) ||
               (dataRef &&
-                ((typeof dataRef.title === 'string' &&
-                  dataRef.title.match(inputValue)) ||
+                ((typeof dataRef.title === 'string' && dataRef.title.match(inputValue)) ||
                   (typeof dataRef.pinyin === 'string' &&
                     dataRef.pinyin.match(new RegExp(inputValue, 'gi'))))))
           );

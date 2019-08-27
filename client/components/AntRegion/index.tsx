@@ -36,15 +36,15 @@ function AntRegion() {
     setPreviewResult({ values, labels, data });
   }
 
-  function onSelectChangeHandler(value, option) {
+  function onSelectChangeHandler(value) {
     // const { props } = option;
     // console.log(value, option);
-    setPreviewValue((prevValue) => prevValue.concat(value));
+    setPreviewValue(value);
   }
 
   return (
     <Fragment>
-      <h5>修改于: 08-28 :03:18</h5>
+      <h5>修改于: 08-28 :03:30</h5>
       <Card bordered={false} title="普通搜索">
         此处: 1. 需要根据省份查询 2. 城市查询 3. 拼音查询 <br />
         <Row gutter={24}>
