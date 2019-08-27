@@ -47,7 +47,7 @@
   },
   {
     "id": "130000",
-    "chineseName": "河北",
+    "chineseName": "河北省",
     "pinyin": "HEBEI",
     "children": [
       { "id": "130100", "chineseName": "石家庄市", "pinyin": "JIAZHUANG" },
@@ -65,7 +65,7 @@
   },
   {
     "id": "140000",
-    "chineseName": "山西",
+    "chineseName": "山西省",
     "pinyin": "SHANXI",
     "children": [
       { "id": "140100", "chineseName": "太原市", "pinyin": "TAIYUAN" },
@@ -102,7 +102,7 @@
   },
   {
     "id": "210000",
-    "chineseName": "辽宁",
+    "chineseName": "辽宁省",
     "pinyin": "LIAONING",
     "children": [
       { "id": "210100", "chineseName": "沈阳市", "pinyin": "SHENYANG" },
@@ -123,7 +123,7 @@
   },
   {
     "id": "220000",
-    "chineseName": "吉林",
+    "chineseName": "吉林省",
     "pinyin": "JILIN",
     "children": [
       { "id": "220100", "chineseName": "长春市", "pinyin": "CHANGCHUN" },
@@ -143,7 +143,7 @@
   },
   {
     "id": "230000",
-    "chineseName": "黑龙江",
+    "chineseName": "黑龙江省",
     "pinyin": "HEILONGJIANG",
     "children": [
       { "id": "230100", "chineseName": "哈尔滨市", "pinyin": "HAERBIN" },
@@ -186,7 +186,7 @@
   },
   {
     "id": "320000",
-    "chineseName": "江苏",
+    "chineseName": "江苏省",
     "pinyin": "JIANGSU",
     "children": [
       { "id": "320100", "chineseName": "南京市", "pinyin": "NANJING" },
@@ -206,7 +206,7 @@
   },
   {
     "id": "330000",
-    "chineseName": "浙江",
+    "chineseName": "浙江省",
     "pinyin": "ZHEJIANG",
     "children": [
       { "id": "330100", "chineseName": "杭州市", "pinyin": "HANGZHOU" },
@@ -224,7 +224,7 @@
   },
   {
     "id": "340000",
-    "chineseName": "安徽",
+    "chineseName": "安徽省",
     "pinyin": "ANHUI",
     "children": [
       { "id": "340100", "chineseName": "合肥市", "pinyin": "HEFEI" },
@@ -247,7 +247,7 @@
   },
   {
     "id": "350000",
-    "chineseName": "福建",
+    "chineseName": "福建省",
     "pinyin": "FUJIAN",
     "children": [
       { "id": "350100", "chineseName": "福州市", "pinyin": "FUZHOU" },
@@ -263,7 +263,7 @@
   },
   {
     "id": "360000",
-    "chineseName": "江西",
+    "chineseName": "江西省",
     "pinyin": "JIANGXI",
     "children": [
       { "id": "360100", "chineseName": "南昌市", "pinyin": "NANCHANG" },
@@ -281,7 +281,7 @@
   },
   {
     "id": "370000",
-    "chineseName": "山东",
+    "chineseName": "山东省",
     "pinyin": "SHANDONG",
     "children": [
       { "id": "370100", "chineseName": "济南市", "pinyin": "JINAN" },
@@ -305,7 +305,7 @@
   },
   {
     "id": "410000",
-    "chineseName": "河南",
+    "chineseName": "河南省",
     "pinyin": "HENAN",
     "children": [
       { "id": "410100", "chineseName": "郑州市", "pinyin": "ZHENGZHOU" },
@@ -330,7 +330,7 @@
   },
   {
     "id": "420000",
-    "chineseName": "湖北",
+    "chineseName": "湖北省",
     "pinyin": "HUBEI",
     "children": [
       { "id": "420100", "chineseName": "武汉市", "pinyin": "WUHAN" },
@@ -358,7 +358,7 @@
   },
   {
     "id": "430000",
-    "chineseName": "湖南",
+    "chineseName": "湖南省",
     "pinyin": "HUNAN",
     "children": [
       { "id": "430100", "chineseName": "长沙市", "pinyin": "CHANGSHA" },
@@ -383,7 +383,7 @@
   },
   {
     "id": "440000",
-    "chineseName": "广东",
+    "chineseName": "广东省",
     "pinyin": "GUANGDONG",
     "children": [
       { "id": "440100", "chineseName": "广州市", "pinyin": "GUANGZHOU" },
@@ -411,7 +411,7 @@
   },
   {
     "id": "450000",
-    "chineseName": "广西",
+    "chineseName": "广西省",
     "pinyin": "GUANGXI",
     "children": [
       { "id": "450100", "chineseName": "南宁市", "pinyin": "NANNING" },
@@ -432,7 +432,7 @@
   },
   {
     "id": "460000",
-    "chineseName": "海南",
+    "chineseName": "海南省",
     "pinyin": "HAINAN",
     "children": [
       { "id": "460100", "chineseName": "海口市", "pinyin": "HAIKOU" },
@@ -543,7 +543,7 @@
   },
   {
     "id": "510000",
-    "chineseName": "四川",
+    "chineseName": "四川省",
     "pinyin": "SICHUAN",
     "children": [
       { "id": "510100", "chineseName": "成都市", "pinyin": "CHENGDU" },
@@ -583,7 +583,7 @@
   },
   {
     "id": "520000",
-    "chineseName": "贵州",
+    "chineseName": "贵州省",
     "pinyin": "GUIZHOU",
     "children": [
       { "id": "520100", "chineseName": "贵阳市", "pinyin": "GUIYANG" },
@@ -611,7 +611,7 @@
   },
   {
     "id": "530000",
-    "chineseName": "云南",
+    "chineseName": "云南省",
     "pinyin": "YUNNAN",
     "children": [
       { "id": "530100", "chineseName": "昆明市", "pinyin": "KUNMING" },
@@ -681,7 +681,7 @@
   },
   {
     "id": "610000",
-    "chineseName": "陕西",
+    "chineseName": "陕西省",
     "pinyin": "SHANXI",
     "children": [
       { "id": "610100", "chineseName": "西安市", "pinyin": "XIAN" },
@@ -698,7 +698,7 @@
   },
   {
     "id": "620000",
-    "chineseName": "甘肃",
+    "chineseName": "甘肃省",
     "pinyin": "GANSU",
     "children": [
       { "id": "620100", "chineseName": "兰州市", "pinyin": "LANZHOU" },
@@ -727,7 +727,7 @@
   },
   {
     "id": "630000",
-    "chineseName": "青海",
+    "chineseName": "青海省",
     "pinyin": "QINGHAI",
     "children": [
       { "id": "630100", "chineseName": "西宁市", "pinyin": "XINING" },
@@ -828,7 +828,7 @@
   },
   {
     "id": "710000",
-    "chineseName": "台湾",
+    "chineseName": "台湾省",
     "pinyin": "TAIWAN",
     "children": [
       { "chineseName": "高雄市", "pinyin": "GAOXIONG" },

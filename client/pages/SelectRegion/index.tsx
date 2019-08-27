@@ -1,6 +1,4 @@
 import React from 'react';
-import { Card } from 'antd';
-
 import AntRegion from '../../components/AntRegion';
 import MyLayout from '../../layout';
 
@@ -26,10 +24,7 @@ function SelectRegion() {
 
   return (
     <MyLayout>
-      <Card title="普通搜索">
-        此处: 1. 需要根据省份查询 2. 城市查询 3. 拼音查询 <br />
-        <AntRegion />
-      </Card>
+      <AntRegion />
       {/* <Card title="树形">
         bug: key值重复导致选择不准, 且不允许选择
         <br />

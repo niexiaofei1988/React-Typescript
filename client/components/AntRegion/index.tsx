@@ -1,83 +1,86 @@
-import React, { useState, Fragment } from 'react';
-import { Select } from 'antd';
+import React, { Fragment, useState } from 'react';
+import { Card, Row, Col, Typography } from 'antd';
 
-import data from '../../../data/china.json';
+import treeData from '../../../data/all_china_tree.json';
 
-const { Option, OptGroup } = Select;
+import MonacoEditor from '../Monaco/MonacoEditor';
+import SelectRegion from './SelectRegion';
+import TreeRegion from './TreeRegion';
 
-export interface TreeNodeItemProps {
-  id?: string;
-  pinyin?: string;
-  chineseName: string;
-  children?: any[];
+// import selectData from '../../../data/china.json';
+// import data from '../../../data/utils';
+
+const { Paragraph } = Typography;
+
+// 1 级好搞, 3级也好搞, 2级怎么搞 ? 如果是更多级, 搞一个递归 ?
+function getDataByTreeData(treeData: any[], level: number = 2) {
+  if (level === 1) return treeData.map(({ children, ...rest }) => rest);
+  if (level === 3) return treeData;
+  return treeData.map((item) => {
+    return {
+      ...item,
+      children: item.children.map(({ children, ...rest }) => rest),
+    };
+  });
 }
 
-export interface AntRegionProps {
-  onChange?: Function;
-  showPreview?: Boolean;
-  value?: string[] | string;
-}
+const data = getDataByTreeData(treeData);
+const newLocal = { labels: [], values: [], data: [] };
 
-function AntRegion(props: AntRegionProps) {
-  const { value, onChange, showPreview = true, ...restProps } = props;
-  const [stateValue, setStateValue] = useState<string[] | string>([]);
+function AntRegion() {
+  const [previewValue, setPreviewValue] = useState([]);
+  const [previewResult, setPreviewResult] = useState(newLocal);
 
-  useState(() => {
-    if ('value' in props) {
-      setStateValue(value);
-    }
-  }, [value]);
-
-  function getOptions() {
-    return data.map((item) => (
-      <OptGroup label={item.chineseName} key={item.id} data-dataRef={item}>
-        {item.children.map((child) => (
-          <Option key={child.id} value={child.id} data-dataRef={item} data-pinyin={child.pinyin}>
-            {/* {item.chineseName}- */}
-            {child.chineseName}
-          </Option>
-        ))}
-      </OptGroup>
-    ));
+  function onChangeHandler(values, labels) {
+    const data = values.map((item, idx) => ({ key: item, label: labels[idx] }));
+    setPreviewResult({ values, labels, data });
   }
 
-  function onChangeHandler(value: React.SetStateAction<string[] | string>, option: any) {
-    if (onChange) {
-      onChange(value, option);
-      return;
-    }
-    setStateValue(value);
+  function onSelectChangeHandler(value, option) {
+    // const { props } = option;
+    // console.log(value, option);
+    setPreviewValue((prevValue) => prevValue.concat(value));
   }
 
   return (
     <Fragment>
-      <Select
-        showSearch
-        mode="multiple"
-        showArrow={false}
-        value={stateValue}
-        style={{ minWidth: 300 }}
-        onChange={onChangeHandler}
-        // getPopupContainer={() => document.getElementById('select-container')}
-        // labelInValue
-        // menuItemSelectedIcon={<div>中</div>}
-        filterOption={(inputValue, option) => {
-          const { props } = option;
-          const { children, 'data-dataRef': dataRef } = props;
-          return (
-            (props['data-pinyin'] && props['data-pinyin'].match(new RegExp(inputValue, 'gi'))) ||
-            ((typeof children === 'string' && children.match(inputValue)) ||
-              (dataRef &&
-                ((typeof dataRef.chineseName === 'string' &&
-                  dataRef.chineseName.match(inputValue)) ||
-                  (typeof dataRef.pinyin === 'string' &&
-                    dataRef.pinyin.match(new RegExp(inputValue, 'gi'))))))
-          );
-        }}
-        {...restProps}>
-        {getOptions()}
-      </Select>
-      {showPreview && <div>预览</div>}
+      <h5>修改于: 08-28 :03:18</h5>
+      <Card bordered={false} title="普通搜索">
+        此处: 1. 需要根据省份查询 2. 城市查询 3. 拼音查询 <br />
+        <Row gutter={24}>
+          <Col span={12}>
+            <SelectRegion sourceData={data} value={previewValue} onChange={onSelectChangeHandler} />
+          </Col>
+          <Col span={12}>
+            <Paragraph copyable>{previewValue.join(', ')}</Paragraph>
+            <MonacoEditor
+              readOnly
+              height={500}
+              language="json"
+              hideCursorInOverviewRuler
+              value={JSON.stringify({ data: previewValue }, null, 2)}
+            />
+          </Col>
+        </Row>
+      </Card>
+      <Card bordered={false} title="树形选择">
+        {/* <pre>{JSON.stringify(treeData, null, 2)}</pre> */}
+        <Row gutter={24}>
+          <Col span={12}>
+            <TreeRegion onChange={onChangeHandler} sourceData={data} />
+          </Col>
+          <Col span={12}>
+            <Paragraph copyable>{previewResult.labels.join(', ')}</Paragraph>
+            <MonacoEditor
+              readOnly
+              height={500}
+              language="json"
+              hideCursorInOverviewRuler
+              value={JSON.stringify(previewResult, null, 2)}
+            />
+          </Col>
+        </Row>
+      </Card>
     </Fragment>
   );
 }

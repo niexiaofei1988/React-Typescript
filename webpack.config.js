@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -78,6 +79,9 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+    new MonacoWebpackPlugin({
+      languages: ['javascript', 'css', 'html', 'typescript', 'json'],
+    }),
     new HtmlWebpackPlugin({
       minify: {
         collapseWhitespace: true,

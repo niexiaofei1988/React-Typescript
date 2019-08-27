@@ -1,25 +1,27 @@
 /**
  * @desc: 普通代码编辑
+ * 1. 继承 monaco ts 文件
  */
 
 import React, { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-import * as main from 'monaco-editor/esm/vs/editor/editor.main';
 
 interface EditorProps extends BasicEditorProps {
   model?: any;
+  theme?: string;
 }
 
 function MonacoEditor(props: EditorProps, ref: React.Ref<unknown>) {
-  const { language, model, theme, value, height, width } = props;
+  const { language, theme, value, height, width, ...rest } = props;
   const editorRef = useRef();
   const monacoInstance = useRef(null);
 
   useEffect(() => {
     if (monacoInstance.current) {
-      monacoInstance.current.setModelLanguage(model, language);
+      // monaco.editor.setModelLanguage(model, language);
+      monacoInstance.current.setValue(value);
     }
-  }, [language]);
+  }, [value]);
 
   // 初始化实例
   function initMonaco() {
@@ -28,6 +30,7 @@ function MonacoEditor(props: EditorProps, ref: React.Ref<unknown>) {
         value,
         theme,
         language,
+        ...rest,
       });
     }
   }
