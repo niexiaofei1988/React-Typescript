@@ -17,8 +17,16 @@ module.exports = {
     port: 9000,
     noInfo: true,
     open: 'Google Chrome',
+    // host: process.env.HOST || '0.0.0.0',
     after: function(app, server) {
       console.log('>>>>>>>>>after');
+    },
+    allowedHosts: ['http://localhost:3000'], // 设置白名单
+    proxy: {
+      '/user': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
   },
   module: {
@@ -37,7 +45,19 @@ module.exports = {
       },
       {
         test: /\.(less|css)$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[local]___[hash:base64:5]',
+              // localIndexName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+          'less-loader',
+        ],
       },
       {
         enforce: 'pre',
