@@ -36,6 +36,12 @@ export default {
         children: '编辑器',
         className: 'menu-item',
       },
+      // {
+      //   name: 'event',
+      //   to: '/event',
+      //   children: '事件处理',
+      //   className: 'menu-item',
+      // },
       {
         name: 'notFound',
         to: '/404',

@@ -53,13 +53,13 @@ function AntRegion() {
           </Col>
           <Col span={12}>
             <Paragraph copyable>{previewValue.join(', ')}</Paragraph>
-            <MonacoEditor
+            {/* <MonacoEditor
               readOnly
               height={500}
               language="json"
               hideCursorInOverviewRuler
               value={JSON.stringify({ data: previewValue }, null, 2)}
-            />
+            /> */}
           </Col>
         </Row>
       </Card>
@@ -71,13 +71,13 @@ function AntRegion() {
           </Col>
           <Col span={12}>
             <Paragraph copyable>{previewResult.labels.join(', ')}</Paragraph>
-            <MonacoEditor
+            {/* <MonacoEditor
               readOnly
               height={500}
               language="json"
               hideCursorInOverviewRuler
               value={JSON.stringify(previewResult, null, 2)}
-            />
+            /> */}
           </Col>
         </Row>
       </Card>

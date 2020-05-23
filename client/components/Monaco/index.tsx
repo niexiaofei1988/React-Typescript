@@ -17,7 +17,7 @@ function EditorIndex() {
     <MyLayout>
       <Tabs className="full-height-card-wrapper">
         <TabPane tab="普通编辑器" key="normal">
-          <MonacoEditor height="100%" value={data} />
+          {/* <MonacoEditor height="100%" value={data} /> */}
         </TabPane>
         <TabPane tab="比对编辑器" key="diff">
           <DiffEditorDemo />
