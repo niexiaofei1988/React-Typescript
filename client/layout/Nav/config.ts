@@ -36,6 +36,13 @@ export default {
         children: '编辑器',
         className: 'menu-item',
       },
+      {
+        name: 'dropSelect',
+        to: '/dropSelect',
+        children: '下拉弹框',
+        className: 'menu-item',
+      },
+      
       // {
       //   name: 'event',
       //   to: '/event',

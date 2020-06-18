@@ -11,6 +11,7 @@ import SelectRegion from './pages/SelectRegion';
 import NotFound from './pages/NotFound';
 import MonacoEditor from './components/Monaco';
 import Welcome from './pages/Welcome';
+import DropSelect from './pages/DropSelect';
 import EventListener from './pages/EventListener/EventHook';
 
 const routes = [
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/region',
     component: SelectRegion,
+  },
+  {
+    path: '/dropSelect',
+    component: DropSelect,
   },
   // {
   //   path: '/event',

@@ -18,20 +18,36 @@ module.exports = {
         // alias: {}
     },
     devServer: {
-        port: 9000,
-        noInfo: true,
-        open: 'Google Chrome',
-        historyApiFallback: true, //加在devServer里
-        // proxy: {
-        //   'https://raw.githubusercontent.com/niexiaofei1988/data/master/data': {
-        //     target: 'https://raw.githubusercontent.com/niexiaofei1988/data/master/data',
-        //     changeOrigin: true,
-        //   },
-        // },
-        // after: function(app, server) {
-        //   console.log('>>>>>>>>>after');
-        // },
-    },
+      port: 9000,
+      noInfo: true,
+      open: 'Google Chrome',
+      // host: process.env.HOST || '0.0.0.0',
+      after: function(app, server) {
+          console.log('>>>>>>>>>after');
+      },
+      allowedHosts: ['http://localhost:3000'], // 设置白名单
+      proxy: {
+          '/user': {
+              target: 'http://localhost:3000',
+              changeOrigin: true,
+          },
+      },
+  },
+    // devServer: {
+    //     port: 9000,
+    //     noInfo: true,
+    //     open: 'Google Chrome',
+    //     historyApiFallback: true, //加在devServer里
+    //     // proxy: {
+    //     //   'https://raw.githubusercontent.com/niexiaofei1988/data/master/data': {
+    //     //     target: 'https://raw.githubusercontent.com/niexiaofei1988/data/master/data',
+    //     //     changeOrigin: true,
+    //     //   },
+    //     // },
+    //     // after: function(app, server) {
+    //     //   console.log('>>>>>>>>>after');
+    //     // },
+    // },
     module: {
         rules: [{
                 test: /\.ts(x?)$/,
